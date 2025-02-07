@@ -1,0 +1,120 @@
+#searchbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+#searchbar .error {
+  display: flex;
+  padding: 20px;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.errorAnim{
+    animation: errorAnim 0.1s 5;
+}
+
+@keyframes errorAnim {
+    50%{
+        transform: translateX(10px);
+    }
+}
+
+#searchbar section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#searchbar .searchBox {
+  width: min(250px, 80vw);
+}
+
+#searchbar input {
+  width: inherit;
+  border-style: none;
+  padding: 5px;
+  border-radius: 0.4rem;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 0.14rem;
+  background-color: rgb(231, 231, 231);
+  box-shadow: var(--shadow);
+}
+
+#searchbar div.list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: scaleY(0);
+  transform-origin: top;
+  background-color: rgb(245, 245, 245);
+  width: inherit;
+  padding: 5px;
+  max-height: 200px;
+  overflow: auto;
+  gap: 3px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 0.2s allow-discrete;
+  box-shadow: var(--shadow);
+}
+
+#searchbar button {
+  width: 80px;
+  border-style: none;
+  padding: 5px;
+  border-radius: 0.4rem;
+  transition: 0.2s allow-discrete;
+  box-shadow: var(--shadow);
+}
+
+@media (hover: hover) {
+  #searchbar button:hover {
+    background-color: rgb(121, 189, 235);
+    cursor: pointer;
+  }
+}
+
+@media (hover: none) {
+  #searchbar button:active {
+    background-color: rgb(121, 189, 235);
+    cursor: pointer;
+  }
+}
+
+#searchbar button:active {
+  transform: scale(0.95);
+}
+
+#searchbar div.list.listOpen {
+  transform: scaleY(1);
+}
+
+#searchbar .item {
+  display: block;
+}
+
+#searchbar .item:hover {
+  background-color: rgb(121, 189, 235);
+  cursor: pointer;
+}
+
+#searchbar .item:focus {
+  background-color: rgb(121, 189, 235);
+}
+
+#searchbar .item.hidden {
+  display: none;
+}

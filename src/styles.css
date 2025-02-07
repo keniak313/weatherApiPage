@@ -1,1 +1,206 @@
 @import url(/node_modules/modern-normalize/modern-normalize.css);
+
+:root {
+  --bg-Day: linear-gradient(rgb(174, 247, 252), rgb(80, 166, 216));
+  --bg-Night: linear-gradient(rgb(79, 127, 131), rgb(35, 69, 92));
+  --color-white:rgba(255,255,255,1);
+  --color-black: rgba(0,0,0,0.75);
+  --color-sun:rgb(255, 198, 92);
+  --color-moon:rgb(18, 48, 59);
+  --shadow: rgba(0,0,0,0.1) 0px 0px 40px;
+}
+
+@property --col1 {
+  syntax: "<color>";
+  initial-value: rgb(255, 255, 255);
+  inherits: false;
+}
+
+@property --col2 {
+  syntax: "<color>";
+  initial-value: rgb(185, 192, 196);
+  inherits: false;
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: var(--color-black);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 34px 1fr 34px;
+  min-height: 100vh;
+  background: linear-gradient(var(--col1), var(--col2));
+  transition:
+    --col1 1s,
+    --col2 1s;
+}
+
+header{
+    grid-row: 1 / 2;
+}
+
+main{
+    grid-row: 2 / 3;
+}
+
+footer {
+    grid-row: 3 / 4;
+}
+
+/* body:hover {
+  --col1: rgb(79, 127, 131);
+  --col2: rgb(35, 69, 92);
+} */
+
+.cond, .location{
+    color:rgba(0,0,0,0.7)
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+.day {
+  --col1: rgb(174, 247, 252);
+  --col2: rgb(80, 166, 216);
+}
+
+.night {
+  --col1: rgb(79, 127, 131);
+  --col2: rgb(35, 69, 92);
+}
+
+.weatherIcon {
+  display: flex;
+  position: relative;
+  color: var(--color-black);
+}
+
+.icon i {
+  font-size: 5rem;
+  color: var(--color-white);
+  transform: translateX(-5px) translateY(20px);
+  animation: iconAnim 5s ease-in-out infinite;
+}
+
+.dayNight i {
+  position: absolute;
+  font-size: 8rem;
+  color: var(--color-black);
+  transform: translateX(0px) translateY(-40px);
+  animation: dayNight 5s ease-in-out infinite;
+}
+
+.dayNight.moon > i {
+  color: var(--color-moon) !important;
+}
+
+.dayNight.sun > i{
+  color: var(--color-sun) !important;
+}
+
+@keyframes iconAnim {
+  50% {
+    transform: translateX(5px) translateY(20px);
+  }
+}
+
+@keyframes dayNight {
+  50% {
+    transform: translateX(0px) translateY(-40px) scale(1.1) rotate(-15deg);
+  }
+}
+
+section#info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  transition: 1s allow-discrete;
+}
+
+#info .temp {
+  font-size: 4rem;
+}
+
+footer{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    opacity: 0.3;
+    box-shadow: var(--shadow);
+    height: 100%;
+}
+
+loader{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 1);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10000;
+    opacity: 0;
+    transition: 3s allow-discrete;
+    border-radius: 5px;
+}
+
+loader.open{
+    display: flex;
+    opacity: 1;
+}
+
+loader i{
+    font-size: 5rem;
+    animation: loader 4s linear infinite;
+
+}
+
+@keyframes loader {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.scaleDown{
+    transform: scaleY(0);
+    transition: 1s allow-discrete;
+    transform-origin: bottom;
+}
+
+.scaleUp{
+    transform: scaleY(1);
+    transition: 1s allow-discrete;
+}
+
+#searchbar, .temp, .cond, .location{
+    transition: 0.5s allow-discrete;
+}

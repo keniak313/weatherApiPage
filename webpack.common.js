@@ -1,4 +1,4 @@
-let data = require('./src/data.json');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // webpack.config.js
 const path = require("path");
@@ -19,13 +19,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: ["style-loader", "css-loader"],
+      // },
       {
         test: /\.html$/i,
         loader: "html-loader",
