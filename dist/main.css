@@ -213,6 +213,7 @@ summary {
 }
 
 :root {
+  --color-accent:rgba(99, 99, 99, 0.5);
   --bg-Day: linear-gradient(rgb(174, 247, 252), rgb(80, 166, 216));
   --bg-Night: linear-gradient(rgb(79, 127, 131), rgb(35, 69, 92));
   --color-white: rgba(255, 255, 255, 1);
@@ -221,6 +222,24 @@ summary {
   --color-sun: rgb(255, 198, 92);
   --color-moon: rgb(18, 48, 59);
   --shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+}
+
+*:focus{
+  outline-width: 2px;
+  outline-color: rgba(0,0,0,0.5);
+  outline-style: solid;
+}
+
+*::-webkit-scrollbar {
+  width: 0.2em;
+}
+ 
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-black);
 }
 
 @property --col1 {
@@ -302,6 +321,7 @@ footer {
   display: flex;
   position: relative;
   color: var(--color-black);
+  padding-bottom: 20px;
 }
 
 .icon i {
@@ -345,14 +365,17 @@ section#info {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+  padding: 10px 20px;
   opacity: 1;
   transition: 1s allow-discrete;
 }
 
 #info .temp {
   font-size: 4rem;
+}
+
+#info .feelsLike{
+  /* padding-bottom: 15px; */
 }
 
 footer {
@@ -435,10 +458,10 @@ loader i {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
-#searchbar .error {
+#info .error {
   display: flex;
   padding: 20px;
   font-size: 0.8rem;
@@ -507,18 +530,24 @@ loader i {
   border-radius: 0.4rem;
   transition: 0.2s allow-discrete;
   box-shadow: var(--shadow);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 0.14rem;
 }
 
 @media (hover: hover) {
   #searchbar button:hover {
-    background-color: rgb(121, 189, 235);
+    background-color: var(--color-accent);
+    border-style: solid;
+    border-color: var(--color-transp-white);
+    color: var(--color-white);
     cursor: pointer;
   }
 }
 
 @media (hover: none) {
   #searchbar button:active {
-    background-color: rgb(121, 189, 235);
+    background-color: var(--color-accent);
     cursor: pointer;
   }
 }
@@ -536,12 +565,12 @@ loader i {
 }
 
 #searchbar .item:hover {
-  background-color: rgb(121, 189, 235);
+  background-color: var(--color-accent);
   cursor: pointer;
 }
 
 #searchbar .item:focus {
-  background-color: rgb(121, 189, 235);
+  background-color: var(--color-accent);
 }
 
 #searchbar .item.hidden {

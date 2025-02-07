@@ -6,10 +6,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
-#searchbar .error {
+#info .error {
   display: flex;
   padding: 20px;
   font-size: 0.8rem;
@@ -78,18 +78,24 @@
   border-radius: 0.4rem;
   transition: 0.2s allow-discrete;
   box-shadow: var(--shadow);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 0.14rem;
 }
 
 @media (hover: hover) {
   #searchbar button:hover {
-    background-color: rgb(121, 189, 235);
+    background-color: var(--color-accent);
+    border-style: solid;
+    border-color: var(--color-transp-white);
+    color: var(--color-white);
     cursor: pointer;
   }
 }
 
 @media (hover: none) {
   #searchbar button:active {
-    background-color: rgb(121, 189, 235);
+    background-color: var(--color-accent);
     cursor: pointer;
   }
 }
@@ -107,12 +113,12 @@
 }
 
 #searchbar .item:hover {
-  background-color: rgb(121, 189, 235);
+  background-color: var(--color-accent);
   cursor: pointer;
 }
 
 #searchbar .item:focus {
-  background-color: rgb(121, 189, 235);
+  background-color: var(--color-accent);
 }
 
 #searchbar .item.hidden {
