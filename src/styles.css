@@ -196,7 +196,7 @@ loader {
   opacity: 0;
   transition: 0.1s allow-discrete;
   border-radius: 5px;
-  padding-bottom: 70px;
+  padding-bottom: 85px;
   gap: 10px;
   color: var(--color-transp-white);
 }
