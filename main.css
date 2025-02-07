@@ -215,11 +215,12 @@ summary {
 :root {
   --bg-Day: linear-gradient(rgb(174, 247, 252), rgb(80, 166, 216));
   --bg-Night: linear-gradient(rgb(79, 127, 131), rgb(35, 69, 92));
-  --color-white:rgba(255,255,255,1);
-  --color-black: rgba(0,0,0,0.75);
-  --color-sun:rgb(255, 198, 92);
-  --color-moon:rgb(18, 48, 59);
-  --shadow: rgba(0,0,0,0.1) 0px 0px 40px;
+  --color-white: rgba(255, 255, 255, 1);
+  --color-transp-white: rgba(255, 255, 255, 0.6);
+  --color-black: rgba(0, 0, 0, 0.75);
+  --color-sun: rgb(255, 198, 92);
+  --color-moon: rgb(18, 48, 59);
+  --shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
 }
 
 @property --col1 {
@@ -234,13 +235,13 @@ summary {
   inherits: false;
 }
 
-*{
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
-    color: var(--color-black);
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  color: var(--color-black);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -257,16 +258,16 @@ body {
     --col2 1s;
 }
 
-header{
-    grid-row: 1 / 2;
+header {
+  grid-row: 1 / 2;
 }
 
-main{
-    grid-row: 2 / 3;
+main {
+  grid-row: 2 / 3;
 }
 
 footer {
-    grid-row: 3 / 4;
+  grid-row: 3 / 4;
 }
 
 /* body:hover {
@@ -274,18 +275,18 @@ footer {
   --col2: rgb(35, 69, 92);
 } */
 
-.cond, .location{
-    color:rgba(0,0,0,0.7)
+.cond,
+.location {
+  color: rgba(0, 0, 0, 0.7);
 }
 
-.location{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 1.2rem;
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
 }
-
 
 .day {
   --col1: rgb(174, 247, 252);
@@ -322,7 +323,7 @@ footer {
   color: var(--color-moon) !important;
 }
 
-.dayNight.sun > i{
+.dayNight.sun > i {
   color: var(--color-sun) !important;
 }
 
@@ -346,6 +347,7 @@ section#info {
   align-items: center;
   gap: 20px;
   padding: 20px;
+  opacity: 1;
   transition: 1s allow-discrete;
 }
 
@@ -353,69 +355,78 @@ section#info {
   font-size: 4rem;
 }
 
-footer{
-    background: white;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 0.7rem;
-    opacity: 0.3;
-    box-shadow: var(--shadow);
-    height: 100%;
+footer {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.3;
+  box-shadow: var(--shadow);
+  height: 100%;
 }
 
-loader{
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    font-size: 2rem;
-    background-color: rgba(255, 255, 255, 1);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 10000;
-    opacity: 0;
-    transition: 3s allow-discrete;
-    border-radius: 5px;
+loader {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 10000;
+  opacity: 0;
+  transition: 0.1s allow-discrete;
+  border-radius: 5px;
+  padding-bottom: 70px;
+  gap: 10px;
+  color: var(--color-transp-white);
 }
 
-loader.open{
-    display: flex;
-    opacity: 1;
+loader.open {
+  display: flex;
+  opacity: 1;
 }
 
-loader i{
-    font-size: 5rem;
-    animation: loader 4s linear infinite;
-
+loader i {
+  color: var(--color-transp-white);
+  font-size: 5rem;
+  animation: loader 4s linear infinite;
 }
 
 @keyframes loader {
-    100%{
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.scaleDown{
-    transform: scaleY(0);
-    transition: 1s allow-discrete;
-    transform-origin: bottom;
+.scaleDown {
+  opacity: 0;
+  transform: scaleY(0);
+  transition: 1s allow-discrete;
+  transform-origin: bottom;
 }
 
-.scaleUp{
-    transform: scaleY(1);
-    transition: 1s allow-discrete;
+.scaleUp {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: 1s allow-discrete;
 }
 
-#searchbar, .temp, .cond, .location{
-    transition: 0.5s allow-discrete;
+#searchbar,
+.temp,
+.cond,
+.location {
+  transition: 0.5s allow-discrete;
 }
+
 #searchbar {
   position: relative;
   display: flex;
