@@ -114,25 +114,16 @@ export function loader(open = true) {
   }
 }
 
-async function test() {
-  await timer(200);
-  loader(true);
-  await timer(2000);
-  loader(false);
-}
-
 export function infoAnim(open = true) {
+  const loader = document.querySelector("loader");
   const info = document.querySelector("#info");
-  const searchBar = document.querySelector("#searchbar")
-  const error = document.querySelector(".error")
+  const error = document.querySelector(".error");
   if (open) {
     info.classList.remove("scaleDown");
-    searchBar.classList.remove("scaleDown");
-    error.classList.remove("scaleDown");
+    loader.classList.remove("open");
   } else {
     info.classList.add("scaleDown");
-    searchBar.classList.add("scaleDown");
-    error.classList.add("scaleDown");
+    loader.classList.add("open");
   }
 }
 

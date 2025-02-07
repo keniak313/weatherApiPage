@@ -63,8 +63,8 @@ class SearchBar {
       error.textContent = "";
       infoAnim(false);
       // loader(true);
-      error.classList.add("errorAnim");
       let weather = await getWeather(this.searchInput.value);
+      error.classList.add("errorAnim");
       infoAnim(true);
       error.addEventListener("animationend", () => {
         error.classList.remove("errorAnim");
