@@ -1,0 +1,539 @@
+/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/*
+Document
+========
+*/
+
+/**
+Use a better box model (opinionated).
+*/
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html {
+	/* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+	font-family:
+		system-ui,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
+	line-height: 1.15; /* 1. Correct the line height in all browsers. */
+	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+	tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+}
+
+/*
+Sections
+========
+*/
+
+body {
+	margin: 0; /* Remove the margin in all browsers. */
+}
+
+/*
+Text-level semantics
+====================
+*/
+
+/**
+Add the correct font weight in Chrome and Safari.
+*/
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+	font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+
+small {
+	font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+
+/**
+Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+
+table {
+	border-color: currentcolor;
+}
+
+/*
+Forms
+=====
+*/
+
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+
+legend {
+	padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+	vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+	display: list-item;
+}
+
+:root {
+  --bg-Day: linear-gradient(rgb(174, 247, 252), rgb(80, 166, 216));
+  --bg-Night: linear-gradient(rgb(79, 127, 131), rgb(35, 69, 92));
+  --color-white:rgba(255,255,255,1);
+  --color-black: rgba(0,0,0,0.75);
+  --color-sun:rgb(255, 198, 92);
+  --color-moon:rgb(18, 48, 59);
+  --shadow: rgba(0,0,0,0.1) 0px 0px 40px;
+}
+
+@property --col1 {
+  syntax: "<color>";
+  initial-value: rgb(255, 255, 255);
+  inherits: false;
+}
+
+@property --col2 {
+  syntax: "<color>";
+  initial-value: rgb(185, 192, 196);
+  inherits: false;
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: var(--color-black);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 34px 1fr 34px;
+  min-height: 100vh;
+  background: linear-gradient(var(--col1), var(--col2));
+  transition:
+    --col1 1s,
+    --col2 1s;
+}
+
+header{
+    grid-row: 1 / 2;
+}
+
+main{
+    grid-row: 2 / 3;
+}
+
+footer {
+    grid-row: 3 / 4;
+}
+
+/* body:hover {
+  --col1: rgb(79, 127, 131);
+  --col2: rgb(35, 69, 92);
+} */
+
+.cond, .location{
+    color:rgba(0,0,0,0.7)
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+.day {
+  --col1: rgb(174, 247, 252);
+  --col2: rgb(80, 166, 216);
+}
+
+.night {
+  --col1: rgb(79, 127, 131);
+  --col2: rgb(35, 69, 92);
+}
+
+.weatherIcon {
+  display: flex;
+  position: relative;
+  color: var(--color-black);
+}
+
+.icon i {
+  font-size: 5rem;
+  color: var(--color-white);
+  transform: translateX(-5px) translateY(20px);
+  animation: iconAnim 5s ease-in-out infinite;
+}
+
+.dayNight i {
+  position: absolute;
+  font-size: 8rem;
+  color: var(--color-black);
+  transform: translateX(0px) translateY(-40px);
+  animation: dayNight 5s ease-in-out infinite;
+}
+
+.dayNight.moon > i {
+  color: var(--color-moon) !important;
+}
+
+.dayNight.sun > i{
+  color: var(--color-sun) !important;
+}
+
+@keyframes iconAnim {
+  50% {
+    transform: translateX(5px) translateY(20px);
+  }
+}
+
+@keyframes dayNight {
+  50% {
+    transform: translateX(0px) translateY(-40px) scale(1.1) rotate(-15deg);
+  }
+}
+
+section#info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  transition: 1s allow-discrete;
+}
+
+#info .temp {
+  font-size: 4rem;
+}
+
+footer{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    opacity: 0.3;
+    box-shadow: var(--shadow);
+    height: 100%;
+}
+
+loader{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 1);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10000;
+    opacity: 0;
+    transition: 3s allow-discrete;
+    border-radius: 5px;
+}
+
+loader.open{
+    display: flex;
+    opacity: 1;
+}
+
+loader i{
+    font-size: 5rem;
+    animation: loader 4s linear infinite;
+
+}
+
+@keyframes loader {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.scaleDown{
+    transform: scaleY(0);
+    transition: 1s allow-discrete;
+    transform-origin: bottom;
+}
+
+.scaleUp{
+    transform: scaleY(1);
+    transition: 1s allow-discrete;
+}
+
+#searchbar, .temp, .cond, .location{
+    transition: 0.5s allow-discrete;
+}
+#searchbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+#searchbar .error {
+  display: flex;
+  padding: 20px;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.errorAnim{
+    animation: errorAnim 0.1s 5;
+}
+
+@keyframes errorAnim {
+    50%{
+        transform: translateX(10px);
+    }
+}
+
+#searchbar section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#searchbar .searchBox {
+  width: min(250px, 80vw);
+}
+
+#searchbar input {
+  width: inherit;
+  border-style: none;
+  padding: 5px;
+  border-radius: 0.4rem;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 0.14rem;
+  background-color: rgb(231, 231, 231);
+  box-shadow: var(--shadow);
+}
+
+#searchbar div.list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: scaleY(0);
+  transform-origin: top;
+  background-color: rgb(245, 245, 245);
+  width: inherit;
+  padding: 5px;
+  max-height: 200px;
+  overflow: auto;
+  gap: 3px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 0.2s allow-discrete;
+  box-shadow: var(--shadow);
+}
+
+#searchbar button {
+  width: 80px;
+  border-style: none;
+  padding: 5px;
+  border-radius: 0.4rem;
+  transition: 0.2s allow-discrete;
+  box-shadow: var(--shadow);
+}
+
+@media (hover: hover) {
+  #searchbar button:hover {
+    background-color: rgb(121, 189, 235);
+    cursor: pointer;
+  }
+}
+
+@media (hover: none) {
+  #searchbar button:active {
+    background-color: rgb(121, 189, 235);
+    cursor: pointer;
+  }
+}
+
+#searchbar button:active {
+  transform: scale(0.95);
+}
+
+#searchbar div.list.listOpen {
+  transform: scaleY(1);
+}
+
+#searchbar .item {
+  display: block;
+}
+
+#searchbar .item:hover {
+  background-color: rgb(121, 189, 235);
+  cursor: pointer;
+}
+
+#searchbar .item:focus {
+  background-color: rgb(121, 189, 235);
+}
+
+#searchbar .item.hidden {
+  display: none;
+}
+
