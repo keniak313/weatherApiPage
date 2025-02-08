@@ -39,7 +39,9 @@ class SearchBar {
       c.addEventListener("focus", (e) => {
         this.searchInput.value = c.textContent;
         c.addEventListener("keydown", (e) => {
+          // e.preventDefault();
           if (e.code === "Enter") {
+            e.preventDefault();
             this.updateList(false);
             this.searchBtn.focus();
           }
