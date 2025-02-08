@@ -55,8 +55,8 @@ export function updateInfo(weather) {
   const dayNight = document.querySelector(".dayNight");
   dayNight.innerHTML = "";
 
-  //location.textContent = `${weather.resolvedAddress}, ${datetime}`;
-  location.innerHTML = `<box-icon type='solid' name='location-plus'></box-icon> ${weather.resolvedAddress}, ${datetime}`;
+  location.textContent = `${weather.resolvedAddress}, ${datetime}`;
+  //location.innerHTML = `<box-icon type='solid' name='location-plus'></box-icon> ${weather.resolvedAddress}, ${datetime}`;
   cond.textContent = weather.currentConditions.conditions;
   temp.textContent = weather.currentConditions.temp;
   feelsLike.textContent = "Feels like: " + weather.currentConditions.feelslike;
