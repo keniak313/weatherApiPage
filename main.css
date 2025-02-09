@@ -384,18 +384,29 @@ section#info {
   font-size: 4rem;
 }
 
-#info .feelsLike{
-  /* padding-bottom: 15px; */
+#info .feelsLike, #info .cond{
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding-bottom: 0.2rem;
 }
 
 #info .error {
   display: flex;
+  flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
   align-items: center;
   text-align: center;
   text-transform: uppercase;
   text-shadow: rgba(0,0,0,0.5) 0px 0px 30px;
+  gap:10px
+}
+
+.error i{
+  padding: 0px;
+  margin: 0px;
+  font-size: 2.3rem;
+  color: inherit;
 }
 
 .errorAnim{
