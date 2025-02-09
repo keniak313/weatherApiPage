@@ -59,6 +59,13 @@ class SearchBar {
       }
     });
 
+    window.addEventListener("keydown", (e) =>{
+      console.log(e.code)
+      if(e.code === "Escape"){
+        this.updateList(false);
+      }
+    })
+
     this.searchBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       const error = document.querySelector(".error");
@@ -87,7 +94,7 @@ class SearchBar {
   }
 
   createItem(text) {
-    const item = document.createElement("div");
+    const item = document.createElement("p");
     item.classList.add("item");
     item.dataset.id = text.toLowerCase();
     item.textContent = text;
