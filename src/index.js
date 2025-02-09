@@ -26,7 +26,7 @@ export const getWeather = async (country) => {
       //console.log("Status: " + response.status);
       if (response.status === 400) {
         throw new Error(
-          "Couldnt find anything, make sure you type in correct Location."
+          "Couldn't find anything, make sure you type in correct Location."
         );
       } else {
         throw new Error(response.status);
@@ -136,7 +136,6 @@ export function loader(open = true) {
 export function infoAnim(open = true) {
   const loader = document.querySelector("loader");
   const info = document.querySelector("#info");
-  const error = document.querySelector(".error");
   if (open) {
     info.classList.remove("scaleDown");
     loader.classList.remove("open");

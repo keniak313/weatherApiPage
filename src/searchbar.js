@@ -80,7 +80,7 @@ class SearchBar {
         error.textContent = "";
         this.list.childNodes.forEach((c) => c.classList.remove("hidden"));
       } else {
-        error.textContent = weather;
+        error.innerHTML = `<i class='bx bxs-message-dots' ></i>${weather}`
       }
       console.log(weather);
     });
