@@ -78,6 +78,7 @@ class SearchBar {
         this.searchInput.value = "";
         updateInfo(weather);
         error.textContent = "";
+        this.list.childNodes.forEach((c) => c.classList.remove("hidden"));
       } else {
         error.textContent = weather;
       }

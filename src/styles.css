@@ -10,6 +10,8 @@
   --color-sun: rgb(255, 198, 92);
   --color-moon: rgb(18, 48, 59);
   --shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+  --color-text-day: #262d31;
+  --color-text-night: #BCD0DC;
 }
 
 *:focus{
@@ -105,6 +107,14 @@ footer {
   --col2: rgb(35, 69, 92);
 }
 
+.textDay{
+  color: var(--color-text-day);
+}
+
+.textNight{
+  color: var(--color-text-night);
+}
+
 .weatherIcon {
   display: flex;
   position: relative;
@@ -164,6 +174,26 @@ section#info {
 
 #info .feelsLike{
   /* padding-bottom: 15px; */
+}
+
+#info .error {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: rgba(0,0,0,0.5) 0px 0px 30px;
+}
+
+.errorAnim{
+    animation: errorAnim 0.1s 5;
+}
+
+@keyframes errorAnim {
+    50%{
+        transform: translateX(10px);
+    }
 }
 
 footer {

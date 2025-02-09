@@ -9,25 +9,7 @@
   padding: 10px 20px;
 }
 
-#info .error {
-  display: flex;
-  padding: 20px;
-  font-size: 0.8rem;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.5);
-}
 
-.errorAnim{
-    animation: errorAnim 0.1s 5;
-}
-
-@keyframes errorAnim {
-    50%{
-        transform: translateX(10px);
-    }
-}
 
 #searchbar section {
   display: flex;

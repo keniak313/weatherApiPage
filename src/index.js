@@ -47,6 +47,7 @@ export function updateInfo(weather) {
   const temp = document.querySelector(".temp");
   const cond = document.querySelector(".cond");
   const feelsLike = document.querySelector(".feelsLike");
+  const error = document.querySelector(".error");
 
   const icon = document.querySelector(".weatherIcon .icon");
   icon.dataset.id = weather.currentConditions.icon;
@@ -70,12 +71,26 @@ export function updateInfo(weather) {
     dayNight.innerHTML = "<i class='bx bxs-sun' ></i>";
     dayNight.classList.add("sun");
     dayNight.classList.remove("moon");
+    //Text
+    feelsLike.classList.remove("textNight");
+    cond.classList.remove("textNight");
+    error.classList.remove("textNight");
+    feelsLike.classList.add("textDay");
+    cond.classList.add("textDay");
+    error.classList.add("textDay");
   } else {
     console.log("Night");
     document.body.classList.add("night");
     dayNight.innerHTML = "<i class='bx bxs-moon' ></i>";
     dayNight.classList.add("moon");
     dayNight.classList.remove("sun");
+    //Text
+    feelsLike.classList.add("textNight");
+    cond.classList.add("textNight");
+    error.classList.add("textNight");
+    feelsLike.classList.remove("textDay");
+    cond.classList.remove("textDay");
+    error.classList.remove("textDay");
   }
 
   switch (weather.currentConditions.icon) {
